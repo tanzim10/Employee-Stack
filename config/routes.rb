@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/login/' => 'session#new'
   post '/login/' => 'session#create'
 
-  delete '/logout/' => 'session#destroy'
+  get '/logout/' => 'session#destroy'
 
   # Password Routes
   get '/passwords' => 'passwords#edit'

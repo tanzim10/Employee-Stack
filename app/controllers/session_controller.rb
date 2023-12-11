@@ -7,9 +7,10 @@ class SessionController < ApplicationController
 
     if user.present? &&user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: "You have successfully logged in!"
+      redirect_to employees_path, notice: "You have successfully logged in!"
+
     else
-      redirect_to login_path, notice: "There was a problem logging in. Please try again."
+      redirect_to login_path, alert: "There was a problem logging in. Please try again."
     end
   end
 

@@ -9,18 +9,13 @@
       <li class="nav-item">
         <%= link_to "About US", aboutus_path, class: "nav-link" %>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Employees
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Categories
-        </a>
-      </li>
+      <% if Current.user %>
         <li class="nav-item">
-          <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
+          <%= link_to 'Log out', logout_path, method: :get, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Employees", employees_path, class: "nav-link" %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -30,6 +25,6 @@
           <%= link_to 'Sign up', signup_path, class: "nav-link" %>
         </li>
       <% end %>
-      </ul>
+    </ul>
   </div>
 </nav>
