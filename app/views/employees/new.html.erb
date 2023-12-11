@@ -1,0 +1,21 @@
+<br>
+<h2>Add New Employee</h2>
+
+<%= form_with model: @employee, url: new_employee_path do |f| %>
+    <%= f.label :First_Name , class: "form-label"%>
+    <%= f.text_field :first_name, placeholder:"Enter your First Name", class: "form-control" %>
+    <br>
+    <%= f.label :Last , class: "form-label" %>
+    <%= f.text_field :last_name, placeholder:"Enter your Last Name" , class: "form-control"%>
+    <br>
+    <%= f.label :Email , class: "form-label"%>
+    <%= f.text_field :email, placeholder:"Enter your Email" , class: "form-control"%>
+    <br>
+    <%= f.label :Phone_Number , class: "form-label" %>
+    <%= f.number_field :number, placeholder:"Enter your Phone Number" , class: "form-control"%>
+    <br>
+    <%= f.label :Address , class: "form-label"%>
+    <%= f.text_field :address, placeholder:"Enter your Address" , class: "form-control"%>
+    <br>
+    <%= f.submit class:"btn btn-primary" %>
+<% end %>

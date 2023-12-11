@@ -1,0 +1,33 @@
+
+<div class="alert alert-info" role="alert">
+  <h2>Employee List</h2>
+</div>
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>First Name   </th>
+            <th>Last Name  </th>
+            <th>Email  </th>
+            <th>Number  </th>
+            <th>Address </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @employee.each do |em| %>
+            <tr>
+              <td><%= em.first_name %></td>
+              <td><%= em.last_name %></td>
+              <td><%= em.email %></td>
+              <td><%= em.number %></td>
+              <td><%= em.address %></td>
+              <td> <%= link_to "Edit", edit_path(em.id), method: :get, class:"btn btn-success" %></td>
+              <td><%= link_to "Delete", destroy_path(em.id), method: :get, class:"btn btn-danger" %></td>
+              
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    
+     
+<%= link_to "New Contact", new_employee_path, class:"btn btn-primary" %>
