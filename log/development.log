@@ -9331,3 +9331,127 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2756)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-12 16:32:57 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 388)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 436)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 46.7ms | Allocations: 36152)
+Completed 200 OK in 75ms (Views: 49.1ms | ActiveRecord: 1.2ms | Allocations: 59501)
+
+
+Started GET "/logout" for 127.0.0.1 at 2023-12-12 16:32:59 +0600
+Processing by SessionController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 957)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-12 16:32:59 +0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 94)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2210)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2793)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-12-12 16:33:02 +0600
+Processing by SessionController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 2905)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5066)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 5813)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-12-12 16:33:16 +0600
+Processing by SessionController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"tanzimfarhan@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tanzimfarhan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/employees
+Completed 302 Found in 275ms (ActiveRecord: 0.2ms | Allocations: 1128)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-12 16:33:16 +0600
+Processing by EmployeesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 7985)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 27)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 10206)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.2ms | Allocations: 11970)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-12 16:33:25 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.1ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 493)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 2670)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.3ms | Allocations: 3622)
+
+
+Started GET "/logout" for 127.0.0.1 at 2023-12-12 16:33:29 +0600
+Processing by SessionController#destroy as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 814)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-12 16:33:29 +0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2201)
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 2797)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-12-12 16:33:30 +0600
+Processing by SessionController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2087)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 4241)
+Completed 200 OK in 12ms (Views: 10.0ms | ActiveRecord: 0.0ms | Allocations: 4805)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-12-12 16:34:09 +0600
+Processing by UserController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user/new.html.erb within layouts/application
+  Rendered user/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1059)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3217)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4041)
+
+
