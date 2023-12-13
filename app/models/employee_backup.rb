@@ -1,0 +1,2 @@
+class EmployeeBackup < ApplicationRecord
+end
