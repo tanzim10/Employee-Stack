@@ -9601,3 +9601,92 @@ Processing by EmployeesController#index as TURBO_STREAM
 Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.1ms | Allocations: 3745)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-13 10:55:01 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 388)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 434)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 24.6ms | Allocations: 36114)
+Completed 200 OK in 72ms (Views: 26.8ms | ActiveRecord: 1.5ms | Allocations: 59466)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-13 10:55:04 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 8156)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 10329)
+Completed 200 OK in 18ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 12033)
+
+
+Started GET "/employeebackup" for 127.0.0.1 at 2023-12-13 10:55:12 +0600
+  
+ActionController::RoutingError (No route matches [GET] "/employeebackup"):
+  
+Started GET "/employeebackup/index" for 127.0.0.1 at 2023-12-13 10:55:20 +0600
+  
+ActionController::RoutingError (uninitialized constant EmployeebackupController):
+  
+Started GET "/employeebackup" for 127.0.0.1 at 2023-12-13 10:57:14 +0600
+  
+ActionController::RoutingError (uninitialized constant EmployeeBackupController):
+  
+Started GET "/" for 127.0.0.1 at 2023-12-13 11:00:27 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 388)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 434)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 24.5ms | Allocations: 35836)
+Completed 200 OK in 73ms (Views: 26.7ms | ActiveRecord: 1.0ms | Allocations: 59191)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-13 11:00:36 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 8156)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 10329)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.6ms | Allocations: 12030)
+
+
+Started GET "/employeebackup" for 127.0.0.1 at 2023-12-13 11:00:44 +0600
+  
+ActionController::RoutingError (uninitialized constant EmployeeBackupController):
+  
+Started GET "/employeebackup" for 127.0.0.1 at 2023-12-13 11:01:24 +0600
+Processing by EmployeeBackupsController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employee_backups/index.html.erb within layouts/application
+  [1m[36mEmployeeBackup Load (0.1ms)[0m  [1m[34mSELECT "employee_backups".* FROM "employee_backups"[0m
+  ↳ app/views/employee_backups/index.html.erb:17
+  Rendered employee_backups/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 700)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 431)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 202)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 15015)
+Completed 200 OK in 14ms (Views: 8.3ms | ActiveRecord: 1.3ms | Allocations: 21501)
+
+

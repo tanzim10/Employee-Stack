@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   get '/destroy/:id', to: 'employees#destroy', as: 'destroy'
 
+  get '/employeebackup/' => 'employee_backups#index'
+
 
 
 end
