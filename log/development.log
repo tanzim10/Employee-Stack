@@ -9690,3 +9690,594 @@ Processing by EmployeeBackupsController#index as HTML
 Completed 200 OK in 14ms (Views: 8.3ms | ActiveRecord: 1.3ms | Allocations: 21501)
 
 
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE DATABASE "postgres" ENCODING = 'unicode'[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "postgres" ENCODING = 'unicode'[0m
+  [1m[35m (18.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-12-15 09:34:23.060723', '2023-12-15 09:34:23.060724') RETURNING "key"[0m
+Migrating to CreateUser (20231207104656)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231207104656') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCurrents (20231208055547)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "currents" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231208055547') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployees (20231208094042)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "number" integer, "address" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_employees_on_email" ON "employees" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231208094042') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployeeBackups (20231213043038)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "employee_backups" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "number" integer, "address" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_employee_backups_on_email" ON "employee_backups" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231213043038') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(737815420147457505)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-12-15 15:36:51 +0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 391)
+  Rendered shared/_navbar.html.erb (Duration: 1.9ms | Allocations: 766)
+  Rendered shared/_flash.html.erb (Duration: 0.2ms | Allocations: 227)
+  Rendered layout layouts/application.html.erb (Duration: 42.7ms | Allocations: 37979)
+Completed 200 OK in 51ms (Views: 44.6ms | ActiveRecord: 0.0ms | Allocations: 43595)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-12-15 15:36:52 +0600
+Processing by SessionController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2913)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 5073)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 5855)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-12-15 15:36:57 +0600
+Processing by SessionController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"tanzimfarhan@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tanzimfarhan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 31ms (ActiveRecord: 11.3ms | Allocations: 12434)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-12-15 15:36:57 +0600
+Processing by SessionController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 2083)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 31)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 4292)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 4917)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-12-15 15:36:58 +0600
+Processing by UserController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user/new.html.erb within layouts/application
+  Rendered user/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1066)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3226)
+Completed 200 OK in 12ms (Views: 3.4ms | ActiveRecord: 3.1ms | Allocations: 11897)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-12-15 15:37:06 +0600
+Processing by UserController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"tanzim.farhan@cloudly.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tanzim.farhan@cloudly.io"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/signup
+Completed 302 Found in 264ms (ActiveRecord: 1.8ms | Allocations: 3704)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-12-15 15:37:07 +0600
+Processing by UserController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering user/new.html.erb within layouts/application
+  Rendered user/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 401)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2562)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3159)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-12-15 15:37:19 +0600
+Processing by UserController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"tanzim.farhan@cloudly.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tanzim.farhan@cloudly.io"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/signup
+Completed 302 Found in 263ms (ActiveRecord: 1.7ms | Allocations: 2835)
+
+
+Started GET "/signup" for 127.0.0.1 at 2023-12-15 15:37:19 +0600
+Processing by UserController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering user/new.html.erb within layouts/application
+  Rendered user/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 401)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2579)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 3178)
+
+
+Started POST "/signup" for 127.0.0.1 at 2023-12-15 15:37:47 +0600
+Processing by UserController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"tanzim.farhan@cloudly.io", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "tanzim.farhan@cloudly.io"], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "tanzim.farhan@cloudly.io"], ["password_digest", "[FILTERED]"], ["created_at", "2023-12-15 09:37:48.068506"], ["updated_at", "2023-12-15 09:37:48.068506"]]
+  ↳ app/controllers/user_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 262ms (ActiveRecord: 3.7ms | Allocations: 3636)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-15 15:37:48 +0600
+Processing by HomeController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 105)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2217)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 3818)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:37:49 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.9ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 827)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 3000)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.2ms | Allocations: 4806)
+
+
+Started GET "/new_employee" for 127.0.0.1 at 2023-12-15 15:37:50 +0600
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1776)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3933)
+Completed 200 OK in 28ms (Views: 3.6ms | ActiveRecord: 4.6ms | Allocations: 11920)
+
+
+Started POST "/new_employee" for 127.0.0.1 at 2023-12-15 15:38:02 +0600
+Processing by EmployeesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"first_name"=>"Tanzim", "last_name"=>"Farhan", "email"=>"tanzimfarhan@gmail.com", "number"=>"8801768431771", "address"=>"26/A, Khondoker Goli,Siddeshwari,Dhaka."}, "commit"=>"Create Employee"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mEmployee Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = $1 LIMIT $2[0m  [["email", "tanzimfarhan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 2.8ms | Allocations: 3573)
+
+
+  
+ActiveModel::RangeError (8801768431771 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/employees_controller.rb:19:in `create'
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:12 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.4ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 432)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2609)
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 1.0ms | Allocations: 3605)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:12 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 432)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2590)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.6ms | Allocations: 3601)
+
+
+Started GET "/new_employee" for 127.0.0.1 at 2023-12-15 15:38:13 +0600
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1078)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3235)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 4214)
+
+
+Started POST "/new_employee" for 127.0.0.1 at 2023-12-15 15:38:19 +0600
+Processing by EmployeesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"first_name"=>"Tanzim", "last_name"=>"Farhan", "email"=>"tanzimfarhan@gmail.com", "number"=>"7395023502", "address"=>"26/A, Khondoker Goli,Siddeshwari,Dhaka."}, "commit"=>"Create Employee"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mEmployee Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = $1 LIMIT $2[0m  [["email", "tanzimfarhan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 2.7ms | Allocations: 3197)
+
+
+  
+ActiveModel::RangeError (7395023502 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/employees_controller.rb:19:in `create'
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:23 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.5ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 432)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2609)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.6ms | Allocations: 3575)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:23 +0600
+Processing by EmployeesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 432)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2609)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 3598)
+
+
+Started GET "/new_employee" for 127.0.0.1 at 2023-12-15 15:38:25 +0600
+Processing by EmployeesController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/new.html.erb within layouts/application
+  Rendered employees/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1078)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.7ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3247)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.2ms | Allocations: 4257)
+
+
+Started POST "/new_employee" for 127.0.0.1 at 2023-12-15 15:38:31 +0600
+Processing by EmployeesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"first_name"=>"Tanzim", "last_name"=>"Farhan", "email"=>"tanzimfarhan@gmail.com", "number"=>"72948", "address"=>"26/A, Khondoker Goli,Siddeshwari,Dhaka."}, "commit"=>"Create Employee"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mEmployee Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "employees" WHERE "employees"."email" = $1 LIMIT $2[0m  [["email", "tanzimfarhan@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mEmployee Create (1.4ms)[0m  [1m[32mINSERT INTO "employees" ("first_name", "last_name", "email", "number", "address", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["first_name", "Tanzim"], ["last_name", "Farhan"], ["email", "tanzimfarhan@gmail.com"], ["number", 72948], ["address", "26/A, Khondoker Goli,Siddeshwari,Dhaka."], ["created_at", "2023-12-15 09:38:31.460215"], ["updated_at", "2023-12-15 09:38:31.460215"]]
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/employees_controller.rb:19:in `create'
+Redirected to http://127.0.0.1:3000/employees
+Completed 302 Found in 13ms (ActiveRecord: 4.6ms | Allocations: 3168)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:31 +0600
+Processing by EmployeesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 559)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2728)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 3729)
+
+
+Started GET "/edit/1" for 127.0.0.1 at 2023-12-15 15:38:37 +0600
+Processing by EmployeesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:36:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/edit.html.erb within layouts/application
+  Rendered employees/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1560)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 3713)
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 0.5ms | Allocations: 5750)
+
+
+Started PATCH "/update/1" for 127.0.0.1 at 2023-12-15 15:38:39 +0600
+Processing by EmployeesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "employee"=>{"first_name"=>"Tanzim", "last_name"=>"Farhan", "email"=>"tanzimfarhan@gmail.com", "number"=>"72948", "address"=>"26/A, Khondoker Goli,Siddeshwari,Dhaka."}, "commit"=>"Update Employee", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  [1m[36mEmployee Load (0.2ms)[0m  [1m[34mSELECT "employees".* FROM "employees" WHERE "employees"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/employees_controller.rb:40:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/employees_controller.rb:41:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/employees_controller.rb:41:in `update'
+Redirected to http://127.0.0.1:3000/employees
+Completed 302 Found in 9ms (ActiveRecord: 4.2ms | Allocations: 2624)
+
+
+Started GET "/employees" for 127.0.0.1 at 2023-12-15 15:38:39 +0600
+Processing by EmployeesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+  Rendering layout layouts/application.html.erb
+  Rendering employees/index.html.erb within layouts/application
+  [1m[36mEmployee Load (0.3ms)[0m  [1m[34mSELECT "employees".* FROM "employees"[0m
+  ↳ app/views/employees/index.html.erb:17
+  Rendered employees/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 520)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 93)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 2683)
+Completed 200 OK in 6ms (Views: 3.3ms | ActiveRecord: 0.5ms | Allocations: 3674)
+
+
+Started GET "/logout" for 127.0.0.1 at 2023-12-15 15:40:17 +0600
+Processing by SessionController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `set_current_user'
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.4ms | Allocations: 903)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-15 15:40:17 +0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.6ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 26)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2201)
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 2772)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-15 15:40:23 +0600
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.5ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2197)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 2774)
+
+
+Started GET "/" for 192.168.65.1 at 2023-12-15 12:04:43 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (55.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 4 pending migrations:
+
+db/migrate/20231207104656_create_user.rb
+db/migrate/20231208055547_create_currents.rb
+db/migrate/20231208094042_create_employees.rb
+db/migrate/20231213043038_create_employee_backups.rb
+
+
+):
+  
+activerecord (7.1.2) lib/active_record/migration.rb:754:in `check_pending_migrations'
+activerecord (7.1.2) lib/active_record/migration.rb:643:in `block (2 levels) in call'
+activesupport (7.1.2) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.2) lib/active_record/migration.rb:648:in `block in call'
+activerecord (7.1.2) lib/active_record/migration.rb:640:in `synchronize'
+activerecord (7.1.2) lib/active_record/migration.rb:640:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505525987168465910)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-12-15 12:05:10.951682', '2023-12-15 12:05:10.951684') RETURNING "key"[0m
+Migrating to CreateUser (20231207104656)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231207104656') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCurrents (20231208055547)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "currents" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231208055547') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployees (20231208094042)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "employees" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "number" integer, "address" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_employees_on_email" ON "employees" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231208094042') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEmployeeBackups (20231213043038)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "employee_backups" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "number" integer, "address" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_employee_backups_on_email" ON "employee_backups" ("email")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231213043038') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505525987168465910)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 192.168.65.1 at 2023-12-15 12:05:25 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 260)
+  Rendered shared/_navbar.html.erb (Duration: 4.5ms | Allocations: 960)
+  Rendered shared/_flash.html.erb (Duration: 0.5ms | Allocations: 226)
+  Rendered layout layouts/application.html.erb (Duration: 413.3ms | Allocations: 102804)
+Completed 200 OK in 429ms (Views: 416.5ms | ActiveRecord: 0.0ms | Allocations: 105499)
+
+
+Started GET "/aboutus" for 192.168.65.1 at 2023-12-15 12:05:31 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#aboutus as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/aboutus.html.erb within layouts/application
+  Rendered home/aboutus.html.erb within layouts/application (Duration: 0.9ms | Allocations: 91)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 105)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 2272)
+Completed 200 OK in 36ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 5332)
+
+
+Started GET "/login" for 192.168.65.1 at 2023-12-15 12:05:32 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (Duration: 8.2ms | Allocations: 3367)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 5553)
+Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 0.0ms | Allocations: 6182)
+
+
+Started GET "/signup" for 192.168.65.1 at 2023-12-15 12:05:33 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UserController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering user/new.html.erb within layouts/application
+  Rendered user/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1165)
+  Rendered shared/_navbar.html.erb (Duration: 0.1ms | Allocations: 92)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 22)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3345)
+Completed 200 OK in 74ms (Views: 13.4ms | ActiveRecord: 5.3ms | Allocations: 22549)
+
+
+Started GET "/" for 192.168.65.1 at 2023-12-18 17:50:45 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.2ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.3ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 2207)
+Completed 200 OK in 43ms (Views: 35.6ms | ActiveRecord: 0.0ms | Allocations: 2643)
+
+
+Started GET "/" for 192.168.65.1 at 2023-12-18 18:02:38 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 41)
+  Rendered shared/_navbar.html.erb (Duration: 0.3ms | Allocations: 90)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 2206)
+Completed 200 OK in 25ms (Views: 19.7ms | ActiveRecord: 0.0ms | Allocations: 2769)
+
+
